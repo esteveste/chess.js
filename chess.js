@@ -33,7 +33,7 @@
  *  https://github.com/jhlywa/chess.js/blob/master/LICENSE
  */
 
-var Chess = function(fen, game_type) {
+var Chess = function(game_type, fen) {
 
     /* jshint indent: false */
 
