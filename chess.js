@@ -1,6 +1,6 @@
 'use strict';
 /*
- * Copyright (c) 2014, Jeff Hlywa (jhlywa@gmail.com)
+ * Copyright (c) 2017, Jeff Hlywa (jhlywa@gmail.com)
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,9 +28,10 @@
 
 /* minified license below  */
 
-/*! Copyright (c) 2014, Jeff Hlywa (jhlywa@gmail.com)
- *  Released under the BSD license
- *  https://github.com/jhlywa/chess.js/blob/master/LICENSE
+/* @license
+ * Copyright (c) 2017, Jeff Hlywa (jhlywa@gmail.com)
+ * Released under the BSD license
+ * https://github.com/jhlywa/chess.js/blob/master/LICENSE
  */
 
 var Chess = function(game_type, fen) {
@@ -811,6 +812,11 @@ var Chess = function(game_type, fen) {
         undo_move();
 
         return output;
+    }
+
+    // parses all of the decorators out of a SAN string
+    function stripped_san(move) {
+        return move.replace(/=/, '').replace(/[+#]?[?!]*$/, '');
     }
 
     function attacked(color, square) {
