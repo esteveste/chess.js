@@ -1400,6 +1400,11 @@ var Chess = function(game_type, fen) {
                 }
             }
 
+            //hack to put antichess working(if theres a capture move, you have to make it)
+            if (game_type == GAME_ANTICHESS && moves.filter(move => move.includes("x")).length > 0) {
+                return moves.filter(move => move.includes("x")); //return capture moves
+            }
+
             return moves;
         },
 
