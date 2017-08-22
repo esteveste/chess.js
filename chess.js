@@ -879,15 +879,11 @@ var Chess = function(game_type, fen) {
     }
 
     function in_stalemate() {
-        if (game_type == GAME_STANDARD) {
-            return !in_check() && generate_moves().length === 0;
-        } else {
-            return false; //check for other game mods
-        }
+        return !in_check() && generate_moves().length === 0;
     }
 
     function insufficient_material() {
-        if (game_type = GAME_STANDARD) {
+        if (game_type == GAME_STANDARD || game_type == GAME_960) {
             var pieces = {};
             var bishops = [];
             var num_pieces = 0;
@@ -937,7 +933,7 @@ var Chess = function(game_type, fen) {
          * Zobrist key would be maintained in the make_move/undo_move functions,
          * avoiding the costly that we do below.
          */
-        if (game_type == GAME_STANDARD) {
+        if (game_type == GAME_STANDARD || game_type == GAME_960) {
             var moves = [];
             var positions = {};
             var repetition = false;
